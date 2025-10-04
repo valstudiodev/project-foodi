@@ -1,0 +1,39 @@
+@use "sass:math";
+@use "_reset";
+@use "_mixins" as *;
+@use "_colors" as *;
+@use "_components";
+@use "_header";
+@use "_footer";
+@use "_home";
+@use "_iconfont";
+@use "_animation";
+
+
+
+body {
+   font-family: "Poppins", sans-serif;
+   @include typography("BODY", 400, 0);
+
+   &.scroll-lock {
+         overflow: hidden;
+         touch-action: none;
+         overscroll-behavior: none;
+      }
+}
+
+.wrapper {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+
+   >main {
+      flex-grow: 1;
+   }
+}
+
+[class*="__container"] {
+   max-width: toRem($containerWidth);
+   padding-inline: toRem(math.div($containerPadding, 2));
+   margin: 0 auto;
+}

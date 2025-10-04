@@ -1,0 +1,67 @@
+@font-face {
+   font-family: 'iconfont';
+   src: url('../fonts/iconfont.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+   font-display: block;
+}
+
+[class*="--icon-"]::before {
+   content: "";
+   font-family: 'iconfont';
+   line-height: 1 !important;
+   /* Better Font Rendering =========== */
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+[class*="--icon-cook"]::before {
+   content: "\e900";
+}
+
+[class*="--icon-instagram1"]::before {
+   content: "\e901";
+}
+
+[class*="--icon-beans"]::before {
+   content: "\e902";
+}
+
+[class*="--icon-cross"]::before {
+   content: "\e903";
+}
+
+[class*="--icon-facebook"]::before {
+   content: "\e904";
+}
+
+[class*="--icon-food-bank"]::before {
+   content: "\e905";
+}
+
+[class*="--icon-linkedIn"]::before {
+   content: "\e908";
+}
+
+[class*="--icon-quote"]::before {
+   content: "\e90a";
+}
+
+[class*="--icon-star-active"]::before {
+   content: "\e90b";
+}
+
+[class*="--icon-star-inactive"]::before {
+   content: "\e90c";
+}
+
+[class*="--icon-twitter"]::before {
+   content: "\e90d";
+}
+
+
+
+
+
