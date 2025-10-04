@@ -63,7 +63,7 @@
    background: url("../img/banners/hero-image.webp") center / cover no-repeat;
    width: 100%;
    height: 100%;
-   @include adaptiveValue('padding-top', 250, 50);
+   @include adaptiveValue('padding-top', 250, 100);
    @include adaptiveValue('padding-bottom', 300, 50);
    @include adaptiveValue('margin-bottom', 120, 20);
 
@@ -286,6 +286,7 @@
       @media (max-width: toEm(630)) {
         flex-direction: column;
         gap: toRem(15);
+        padding-block: toRem(20);
       }
    }
 

@@ -168,6 +168,10 @@
          }
       }
    }
+
+   @media (max-width: toEm(639)) {
+      flex-grow: 1;
+   }
 }
 
 .user {

@@ -827,8 +827,6 @@ textarea {
   outline: 0.0625rem solid #797B78;
   border-radius: 0.5rem;
   width: 21.75rem;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
 }
 .form-email__input {
   position: relative;
@@ -1000,20 +998,31 @@ textarea {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   width: 40%;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transform: translateY(-20px) scale(1);
-      -ms-transform: translateY(-20px) scale(1);
-          transform: translateY(-20px) scale(1);
-  scale: 0.9;
-  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition: opacity 0.3s ease, -webkit-transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, -webkit-transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (min-width: 37.5em) {
+  .form-email__button {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transform: translateY(-20px) scale(1);
+        -ms-transform: translateY(-20px) scale(1);
+            transform: translateY(-20px) scale(1);
+    scale: 0.9;
+    -webkit-transition: opacity 0.3s ease, -webkit-transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: opacity 0.3s ease, -webkit-transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, -webkit-transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
 }
 @media (max-width: 37.5em) {
   .form-email {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -1380,12 +1389,14 @@ textarea {
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 60;
   min-height: 3rem;
-  background-color: #121A1D;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  background-color: transparent;
 }
 @media (min-width: 90em) {
   .header {
@@ -1401,6 +1412,22 @@ textarea {
   .header {
     padding-block: 20px;
   }
+}
+.header::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #121A1D;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: -1;
+}
+.header.scrolled::before {
+  opacity: 1;
 }
 .body-header {
   display: -webkit-box;
@@ -1439,7 +1466,6 @@ textarea {
 }
 @media (max-width: 48.5625em) {
   .body-header__button {
-    width: 100%;
     text-align: center;
   }
 }
@@ -1450,10 +1476,18 @@ textarea {
   z-index: 5;
 }
 @media (max-width: 48.5625em) {
+  .logo {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+
+@media (max-width: 48.5625em) {
   .menu-header {
     display: block;
     width: 100%;
-    max-height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     right: -100%;
@@ -1879,6 +1913,13 @@ textarea {
 .schedule__days > *:last-child {
   margin-bottom: 0rem;
 }
+@media (max-width: 39.9375em) {
+  .schedule {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
 
 .user {
   font-weight: 500;
@@ -2129,12 +2170,12 @@ textarea {
 }
 @media (min-width: 20em) and (max-width: 90em) {
   .hero {
-    padding-top: clamp( 50px , -7.1428571429px  +  17.8571428571vw , 250px );
+    padding-top: clamp( 100px , 57.1428571429px  +  13.3928571429vw , 250px );
   }
 }
 @media (max-width: 20em) {
   .hero {
-    padding-top: 50px;
+    padding-top: 100px;
   }
 }
 @media (min-width: 90em) {
@@ -2425,6 +2466,7 @@ textarea {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 0.9375rem;
+    padding-block: 1.25rem;
   }
 }
 .banner-reservation__content {

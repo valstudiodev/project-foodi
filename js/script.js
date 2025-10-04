@@ -1,7 +1,10 @@
-// =========================== Button-burger =================================
 window.addEventListener('load', windowLoad)
 
-document.addEventListener('click', documentActions)
+// document.addEventListener('click', documentActions)
+
+window.addEventListener('scroll', scrollHeader)
+
+document.addEventListener('click', burgerMenu)
 
 let isMobile
 
@@ -12,15 +15,11 @@ function windowLoad() {
    slidersInit();
 }
 
-function documentActions(e) {
-   const targetElement = e.target
-   // if (targetElement.closest('.menu__arrow')) {
-   // 	targetElement.closest('.menu__item').classList.toggle('active')
-   // }
-   if (targetElement.closest('.icon-menu')) {
+function burgerMenu(e) {
+   const iconMenu = e.target
+   if (iconMenu.closest('.icon-menu')) {
       document.body.classList.toggle('menu-open')
       document.body.classList.toggle('scroll-lock')
-      document.documentElement.classList.toggle('menu-open')
    }
 }
 
@@ -57,9 +56,14 @@ function slidersInit() {
 }
 
 
-
-
-
+function scrollHeader() {
+   const header = document.querySelector('.header')
+   if (window.scrollY > 50) {
+      header.classList.add('scrolled')
+   } else {
+      header.classList.remove('scrolled')
+   }
+}
 
 
 
